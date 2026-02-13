@@ -28,100 +28,105 @@ local sounds = {
     "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043730.txt",
 }
 
-local Encoded = game:HttpGet(sounds[math.random(1,#sounds)])
-    writefile("nigga.mp3", crypt.base64decode(Encoded))
-    local Retrieved = getcustomasset("nigga.mp3")
-    local Sound = Instance.new("Sound")
-    Sound.Parent = game
-    Sound.SoundId = Retrieved
-    Sound.Volume = 10
-    Sound.Looped = true
-    Sound:Play()
+task.spawn(function()
+    while task.wait() do
+        local Encoded = game:HttpGet(sounds[math.random(1,#sounds)])
+        writefile("nigga.mp3", crypt.base64decode(Encoded))
+        local Retrieved = getcustomasset("nigga.mp3")
+        local Sound = Instance.new("Sound")
+        Sound.Parent = game
+        Sound.SoundId = Retrieved
+        Sound.Volume = 10
+        Sound:Play()
+        Sound.Ended:Wait()
+        Sound:Destroy()
+    end
+end)
 
-    local cc = Instance.new("ColorCorrectionEffect",game:GetService("Lighting"))
-    cc.Contrast = 1
-    cc.Saturation = 3
-    cc.TintColor = Color3.new(1,0,0)
+local cc = Instance.new("ColorCorrectionEffect",game:GetService("Lighting"))
+cc.Contrast = 1
+cc.Saturation = 3
+cc.TintColor = Color3.new(1,0,0)
 
-    local hui = gethui()
+local hui = gethui()
 
-    if hui then
-        task.spawn(function()
-            while task.wait() do
-                for i,v in hui.Parent:GetDescendants() do
-                    pcall(function()
-                        v.Name = "HTTP SPY DETECTED"
-                    end)
-                    pcall(function()
-                        v.Text = "HTTP SPY DETECTED"
-                    end)
-                    pcall(function()
-                        v.Position = UDim2.fromScale(math.random(-100,100)/100,math.random(-100,100)/100)
-                    end)
-                    pcall(function()
-                        v.Rotation = math.random(0,360)
-                    end)
-                    pcall(function()
-                        v.Visible = true
-                    end)
-                end
+if hui then
+    task.spawn(function()
+        while task.wait() do
+            for i,v in hui.Parent:GetDescendants() do
+                pcall(function()
+                    v.Name = "HTTP SPY DETECTED"
+                end)
+                pcall(function()
+                    v.Text = "HTTP SPY DETECTED"
+                end)
+                pcall(function()
+                    v.Position = UDim2.fromScale(math.random(-100,100)/100,math.random(-100,100)/100)
+                end)
+                pcall(function()
+                    v.Rotation = math.random(0,360)
+                end)
+                pcall(function()
+                    v.Visible = true
+                end)
             end
+        end
+    end)
+end
+
+task.spawn(function()
+    while task.wait() do
+        for i,v in game:GetService("CoreGui"):GetDescendants() do
+            pcall(function()
+                v.Name = "HTTP SPY DETECTED"
+            end)
+            pcall(function()
+                v.Text = "HTTP SPY DETECTED"
+            end)
+            pcall(function()
+                v.Position = UDim2.fromScale(math.random(-100,100)/100,math.random(-100,100)/100)
+            end)
+            pcall(function()
+                v.Rotation = math.random(0,360)
+            end)
+            pcall(function()
+                v.Visible = true
+            end)
+        end
+    end
+end)
+
+task.spawn(function()
+    while task.wait() do
+        for i,v in game:GetService("Players").LocalPlayer.PlayerGui:GetDescendants() do
+            pcall(function()
+                v.Name = "HTTP SPY DETECTED"
+            end)
+            pcall(function()
+                v.Text = "HTTP SPY DETECTED"
+            end)
+            pcall(function()
+                v.Position = UDim2.fromScale(math.random(-100,100)/100,math.random(-100,100)/100)
+            end)
+            pcall(function()
+                v.Rotation = math.random(0,360)
+            end)
+            pcall(function()
+                v.Visible = true
+            end)
+        end
+    end
+end)
+
+task.spawn(function()
+    while task.wait() do
+        task.spawn(function()
+            messagebox("HTTP SPY DETECTED", "HTTP SPY DETECTED", MessageBoxFlags[math.random(1,#MessageBoxFlags)])
+        end)
+        task.spawn(function()
+            pcall(function()
+                workspace.CurrentCamera.CFrame *= CFrame.Angles(math.random(0,360),math.random(0,360),math.random(0,360))
+            end)
         end)
     end
-
-    task.spawn(function()
-        while task.wait() do
-            for i,v in game:GetService("CoreGui"):GetDescendants() do
-                pcall(function()
-                    v.Name = "HTTP SPY DETECTED"
-                end)
-                pcall(function()
-                    v.Text = "HTTP SPY DETECTED"
-                end)
-                pcall(function()
-                    v.Position = UDim2.fromScale(math.random(-100,100)/100,math.random(-100,100)/100)
-                end)
-                pcall(function()
-                    v.Rotation = math.random(0,360)
-                end)
-                pcall(function()
-                    v.Visible = true
-                end)
-            end
-        end
-    end)
-
-    task.spawn(function()
-        while task.wait() do
-            for i,v in game:GetService("Players").LocalPlayer.PlayerGui:GetDescendants() do
-                pcall(function()
-                    v.Name = "HTTP SPY DETECTED"
-                end)
-                pcall(function()
-                    v.Text = "HTTP SPY DETECTED"
-                end)
-                pcall(function()
-                    v.Position = UDim2.fromScale(math.random(-100,100)/100,math.random(-100,100)/100)
-                end)
-                pcall(function()
-                    v.Rotation = math.random(0,360)
-                end)
-                pcall(function()
-                    v.Visible = true
-                end)
-            end
-        end
-    end)
-
-    task.spawn(function()
-        while task.wait() do
-            task.spawn(function()
-                messagebox("HTTP SPY DETECTED", "HTTP SPY DETECTED", MessageBoxFlags[math.random(1,#MessageBoxFlags)])
-            end)
-            task.spawn(function()
-                pcall(function()
-                    workspace.CurrentCamera.CFrame *= CFrame.Angles(math.random(0,360),math.random(0,360),math.random(0,360))
-                end)
-            end)
-        end
-    end)
+end)
