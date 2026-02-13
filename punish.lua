@@ -177,8 +177,13 @@ end)
 task.spawn(function()
 	local count = 1
     while task.wait() do
-		Sound = audios[count]
-        Sound:Play()
+		local s,e
+		repeat s,e = pcall(function()
+			Sound = audios[count]
+        	Sound:Play()
+		end)
+		task.wait()
+		until s
         Sound.Ended:Wait()
 		count += 1
 		if count > #sounds then
