@@ -28,18 +28,26 @@ local sounds = {
     "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043730.txt",
 }
 
+local Sound = Instance.new("Sound",game)
+Sound.Volume = 10
+local dist = Instance.new("DistortionSoundEffect",Sound)
+dist.Level = 0.75
+dist.Enabled = true
+
+local count = 1
+
 task.spawn(function()
     while task.wait() do
-        local Encoded = game:HttpGet(sounds[math.random(1,#sounds)])
+        local Encoded = game:HttpGet(sounds[count])
         writefile("nigga.mp3", crypt.base64decode(Encoded))
         local Retrieved = getcustomasset("nigga.mp3")
-        local Sound = Instance.new("Sound")
-        Sound.Parent = game
         Sound.SoundId = Retrieved
-        Sound.Volume = 10
         Sound:Play()
         Sound.Ended:Wait()
-        Sound:Destroy()
+		count += 1
+		if count > #sounds then
+			count = 1
+		end
     end
 end)
 
