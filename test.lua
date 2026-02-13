@@ -351,5 +351,4 @@ getgenv().safeGet = safeGet
 
 getgenv().safeGet("https://httpbin.org/get")
 
-log("Loaded - full protection active")
-log("Use safePost / safeGet for requests that bypass any hooks")
+log("ANTI-SPY] Loaded")
