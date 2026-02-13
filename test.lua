@@ -351,4 +351,4 @@ getgenv().safeGet = safeGet
 
 getgenv().safeGet("https://httpbin.org/get")
 
-log("ANTI-SPY] Loaded")
+log("[ANTI-SPY] Loaded")
