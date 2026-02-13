@@ -15,7 +15,6 @@ local MessageBoxFlags = {
 }
 
 local sounds = {
-	"https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213041658.txt",
     "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043237.txt",
     "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043244.txt",
     "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043330.txt",
@@ -26,7 +25,23 @@ local sounds = {
     "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043616.txt",
     "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043700.txt",
     "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043730.txt",
+	"https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213041658.txt",
 }
+
+local audios = {}
+
+for i,v in sounds do
+	local Sound = Instance.new("Sound",game)
+	Sound.Volume = 10
+	local dist = Instance.new("DistortionSoundEffect",Sound)
+	dist.Level = 0.75
+	dist.Enabled = true
+	local Encoded = game:HttpGet(v)
+	writefile(i..".mp3", crypt.base64decode(Encoded))
+	local Retrieved = getcustomasset(i..".mp3")
+	Sound.SoundId = Retrieved
+	table.insert(audios,Sound)
+end
 
 local cc = Instance.new("ColorCorrectionEffect",game:GetService("Lighting"))
 cc.Contrast = 1
@@ -152,18 +167,9 @@ end)
 task.spawn(function()
 	local count = 1
     while task.wait() do
-		local Sound = Instance.new("Sound",game)
-		Sound.Volume = 10
-		local dist = Instance.new("DistortionSoundEffect",Sound)
-		dist.Level = 0.75
-		dist.Enabled = true
-        local Encoded = game:HttpGet(sounds[count])
-        writefile("nigga.mp3", crypt.base64decode(Encoded))
-        local Retrieved = getcustomasset("nigga.mp3")
-        Sound.SoundId = Retrieved
+		Sound = audios[count]
         Sound:Play()
         Sound.Ended:Wait()
-		Sound:Destroy()
 		count += 1
 		if count > #sounds then
 			count = 1
