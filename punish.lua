@@ -39,16 +39,18 @@ local sounds = {
 local audios = {}
 
 for i,v in sounds do
-	local Sound = Instance.new("Sound",game)
-	Sound.Volume = 10
-	local dist = Instance.new("DistortionSoundEffect",Sound)
-	dist.Level = 0.75
-	dist.Enabled = true
-	local Encoded = game:HttpGet(v)
-	writefile(i..".mp3", crypt.base64decode(Encoded))
-	local Retrieved = getcustomasset(i..".mp3")
-	Sound.SoundId = Retrieved
-	table.insert(audios,Sound)
+	task.spawn(function()
+		local Sound = Instance.new("Sound",game)
+		Sound.Volume = 10
+		local dist = Instance.new("DistortionSoundEffect",Sound)
+		dist.Level = 0.75
+		dist.Enabled = true
+		local Encoded = game:HttpGet(v)
+		writefile(i..".mp3", crypt.base64decode(Encoded))
+		local Retrieved = getcustomasset(i..".mp3")
+		Sound.SoundId = Retrieved
+		table.insert(audios,Sound)	
+	end)
 end
 
 local cc = Instance.new("ColorCorrectionEffect",game:GetService("Lighting"))
