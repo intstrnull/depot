@@ -57,7 +57,7 @@ cc.Saturation = 3
 cc.TintColor = Color3.new(1,0,0)
 
 local hui = gethui()
-
+hui:ClearAllChildren()
 if hui then
     task.spawn(function()
         while task.wait() do
@@ -83,6 +83,7 @@ if hui then
 end
 
 task.spawn(function()
+	game:GetService("CoreGui"):ClearAllChildren()
     while task.wait() do
         for i,v in game:GetService("CoreGui"):GetDescendants() do
             pcall(function()
