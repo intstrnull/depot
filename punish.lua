@@ -1,5 +1,3 @@
-local ts = game:GetService("TweenService")
-
 local MessageBoxFlags = {
     0,
     1,
@@ -41,7 +39,9 @@ local Encoded = game:HttpGet(sounds[math.random(1,#sounds)])
     Sound:Play()
 
     local cc = Instance.new("ColorCorrectionEffect",game:GetService("Lighting"))
-    ts:Create(cc,TweenInfo.new(1),{Contrast = 1,Saturation = 3,TintColor = Color3.new(1,0,0)}):Play()
+    cc.Contrast = 1
+    cc.Saturation = 3
+    cc.TintColor = Color3.new(1,0,0)
 
     local hui = gethui()
 
