@@ -1,3 +1,5 @@
+local ts = game:GetService("TweenService")
+
 local MessageBoxFlags = {
     0,
     1,
