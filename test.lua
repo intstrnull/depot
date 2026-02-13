@@ -8,7 +8,7 @@ local detected = false
 local ts = game:GetService("TweenService")
 
 function log(msg)
-    warn("[ANTI-SPY] " .. msg)
+    warn("[ANTI-SPY] "..msg)
 end
 
 local deb = false
@@ -80,13 +80,13 @@ function recoverOriginal(fn,name)
 
     if islclosure(fn) then
         hooked = true
-        log("Detected L closure hook on " .. name)
+        log("Detected L closure hook on "..name)
     end
 
     local restored
     pcall(function() restored = getoriginalfunction(fn) end)
     if restored and type(restored) == "function" and iscclosure(restored) then
-        if hooked then log("Recovered " .. name .. " via getoriginalfunction") end
+        if hooked then log("Recovered "..name.." via getoriginalfunction") end
         pcall(function() realHookFunction(fn,restored) end)
         return restored,hooked
     end
