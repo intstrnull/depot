@@ -15,7 +15,6 @@ local MessageBoxFlags = {
 }
 
 local sounds = {
-	"https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213041658.txt",
 	"https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043237.txt",
 	"https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043244.txt",
 	"https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043330.txt",
@@ -34,6 +33,7 @@ local sounds = {
 	"https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213070553.txt",
 	"https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213070627.txt",
 	"https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213070636.txt",
+	"https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213041658.txt",
 }
 
 local audios = {}
