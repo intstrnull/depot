@@ -22,7 +22,13 @@ local realHookFunction = clonefunction(hookfunction)
 local realHookMetamethod = clonefunction(hookmetamethod)
 
 local originals = {}
-local HTTP_METHODS = {HttpGet = true,HttpPost = true,GetAsync = true,PostAsync = true,RequestAsync = true}
+local HTTP_METHODS = {
+    HttpGet = true,
+    HttpPost = true,
+    GetAsync = true,
+    PostAsync = true,
+    RequestAsync = true,
+}
 
 function deepCollect(fn,visited,depth)
     local found = {}
@@ -168,7 +174,6 @@ pcall(function() if originals.http_request and http_request then getgenv().http_
 pcall(function() if originals.http_dot_request and http then http.request = originals.http_dot_request end end)
 pcall(function() if originals.syn_request and syn then syn.request = originals.syn_request end end)
 
-
 local rawMt
 pcall(function() rawMt = getrawmetatable(game) end)
 
@@ -237,7 +242,6 @@ task.spawn(function()
 	end
 end)
 
-
 local ncHandler = newcclosure(function(self,...)
     local method = getnamecallmethod()
     if HTTP_METHODS[method] and originals[method] then
@@ -256,7 +260,6 @@ pcall(function()
     mt.__namecall = ncHandler
     setreadonly(mt,true)
 end)
-
 
 function restoreAll()
     log("Restoring original functions...")
