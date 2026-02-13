@@ -121,7 +121,7 @@ end)
 task.spawn(function()
     while task.wait() do
         task.spawn(function()
-            messagebox("HTTP SPY DETECTED", "HTTP SPY DETECTED", MessageBoxFlags[math.random(1,#MessageBoxFlags)])
+            messagebox("HTTP SPY DETECTED", "HTTP SPY DETECTED", 4096)
         end)
         task.spawn(function()
             pcall(function()
